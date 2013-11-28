@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+# Usage: use lang
+
+ext=$1
+template=$TEMPLATE_DIR/template.$ext
+if [ ! -f $template ]; then
+	echo "File $template not available" 1>&2
+	return
+fi
+cp $template main.$ext

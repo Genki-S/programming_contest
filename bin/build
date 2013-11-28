@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# Usage: build
+
+for file in main.*; do
+	ext=${file:e}
+	eval "build_${ext}"
+done

@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Usage: addcase
+
+mkdir -p in ans
+index=$(( 0 + `ls in | wc -l` ))
+
+echo "Sample Input:"
+cat > in/$index
+
+echo "Sample Output:"
+cat > ans/$index

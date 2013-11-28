@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+# Usage: build_cpp
+
+g++ \
+	-g \
+	-Wall \
+	-W \
+	-Wshadow \
+	-Wpointer-arith \
+	-Wcast-qual \
+	-Wcast-align \
+	-Wold-style-cast \
+	-Woverloaded-virtual \
+	main.cpp \
+	-o a.out

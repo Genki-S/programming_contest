@@ -1,0 +1,27 @@
+#!/bin/zsh
+
+# Usage: judge
+
+for file in `ls out`; do
+	if [ ! -f ans/$file ]; then
+		echo "File ans/$file not available" 1>&2
+		exit 1
+	fi
+	diff ans/$file out/$file &> /dev/null
+	if [ $? -ne 0 ]; then
+		echo "F"
+		echo "WA on case $file"
+		read -q "REPLY?Would you like to vimdiff? [y/n]"
+		case $REPLY in
+			y|Y)
+				vimdiff ans/$file out/$file
+				;;
+			*)
+				echo ""
+		esac
+		exit 1
+	fi
+	echo -n "."
+done
+echo ""
+echo "AC!"
