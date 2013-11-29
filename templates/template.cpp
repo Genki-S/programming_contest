@@ -1,7 +1,4 @@
-#define DEBUG_ON
-#define CONDITION true
-using namespace std;/*{{{*/
-
+/*{{{*/
 #include <algorithm>
 #include <cassert>
 #include <cctype>
@@ -24,6 +21,7 @@ using namespace std;/*{{{*/
 #include <string>
 #include <sys/time.h>
 #include <vector>
+using namespace std;
 
 #define INF (1e9)
 static const double PI = acos(-1.0);
@@ -76,34 +74,18 @@ typedef pair<int, int> PII;
 #define PQ priority_queue
 #define SC static_cast
 
-#ifdef DEBUG_ON
-	#define dprt(fmt, ...) if (CONDITION) fprintf(stderr, fmt, ##__VA_ARGS__)
-	#define darr(a) if (CONDITION) copy( (a), (a) + arrsz(a), ostream_iterator<int>(cerr, " ") ); cerr << endl
-	#define darr_range(a, f, t) if (CONDITION) copy( (a) + (f), (a) + (t), ostream_iterator<int>(cerr, " ") ); cerr << endl
-	#define dvec(v) if (CONDITION) copy( ALL(v), ostream_iterator<int>(cerr, " ") ); cerr << endl
-	#define darr2(a, n, m) if (CONDITION) FOR(i, 0, (n)){ darr_range( (a)[i], 0, (m) ); }
-	#define dvec2(v) if (CONDITION) FOR(i, 0, SZ(v)){ dvec( (v)[i] ); }
-	#define WAIT() if (CONDITION) { string _wait_; cerr << "(hit return to continue)" << endl; getline(cin, _wait_); }
-	#define dump(x) if (CONDITION) cerr << " [L" << __LINE__ << "] " << #x << " = " << (x) << endl;
-	#define dumpf() if (CONDITION) cerr << __PRETTY_FUNCTION__ << endl;
-	#define dumpv(x) if (CONDITION) cerr << " [L:" << __LINE__ << "] " << #x << " = "; REP(q, (x).size()) cerr << (x)[q] << " "; cerr << endl;
-	#define where() if (CONDITION) cerr << __FILE__ << ": " << __PRETTY_FUNCTION__ << " [L: " << __LINE__ << "]" << endl;
-	#define show_bits(b, s) if(CONDITION) { REP(i, s) { cerr << BITOF(b, s-1-i); if(i%4 == 3) cerr << ' '; } cerr << endl; }
-#else
-	#define cerr if(0) cerr
-	#define dprt(fmt, ...)
-	#define darr(a)
-	#define darr_range(a, f, t)
-	#define dvec(v)
-	#define darr2(a, n, m)
-	#define dvec2(v)
-	#define WAIT()
-	#define dump(x)
-	#define dumpf()
-	#define dumpv(x)
-	#define where()
-	#define show_bits(b, s)
-#endif
+#define dprt(fmt, ...) if (opt_debug) fprintf(stderr, fmt, ##__VA_ARGS__)
+#define darr(a) if (opt_debug) copy( (a), (a) + arrsz(a), ostream_iterator<int>(cerr, " ") ); cerr << endl
+#define darr_range(a, f, t) if (opt_debug) copy( (a) + (f), (a) + (t), ostream_iterator<int>(cerr, " ") ); cerr << endl
+#define dvec(v) if (opt_debug) copy( ALL(v), ostream_iterator<int>(cerr, " ") ); cerr << endl
+#define darr2(a, n, m) if (opt_debug) FOR(i, 0, (n)){ darr_range( (a)[i], 0, (m) ); }
+#define dvec2(v) if (opt_debug) FOR(i, 0, SZ(v)){ dvec( (v)[i] ); }
+#define WAIT() if (opt_debug) { string _wait_; cerr << "(hit return to continue)" << endl; getline(cin, _wait_); }
+#define dump(x) if (opt_debug) cerr << " [L" << __LINE__ << "] " << #x << " = " << (x) << endl;
+#define dumpf() if (opt_debug) cerr << __PRETTY_FUNCTION__ << endl;
+#define dumpv(x) if (opt_debug) cerr << " [L:" << __LINE__ << "] " << #x << " = "; REP(q, (x).size()) cerr << (x)[q] << " "; cerr << endl;
+#define where() if (opt_debug) cerr << __FILE__ << ": " << __PRETTY_FUNCTION__ << " [L: " << __LINE__ << "]" << endl;
+#define show_bits(b, s) if(opt_debug) { REP(i, s) { cerr << BITOF(b, s-1-i); if(i%4 == 3) cerr << ' '; } cerr << endl; }
 
 /* Inline functions */
 inline int onbits_count(ULL b) { int c = 0; while(b != 0) { c += (b & 1); b >>= 1; } return c; }
@@ -141,9 +123,23 @@ bool in_field(P p) {
 }
 
 /*}}}*/
+bool opt_debug = false;
 
-int main() { dumpf();
+int main(int argc, char** argv) {
 	std::ios_base::sync_with_stdio(false);
+	// set options {{{
+	int c;
+	while ( (c = getopt(argc, argv, "d")) != -1 ) {
+		switch (c) {
+			case 'd':
+				opt_debug = true;
+				break;
+			default:
+				abort();
+		}
+	}
+	// }}}
+
 	<`0`>
 }
 
