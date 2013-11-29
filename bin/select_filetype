@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# Usage: select_filetype
+
+typeset -a types
+for file in main.*; do
+	types+=(${file:e})
+done
+
+if [ ${#types} -eq 1 ]; then
+	echo $types
+	exit
+fi
+
+echo "Available Types:" 1>&2
+for (( i = 1; i <= ${#types}; i++ )); do
+	echo "$i: ${types[$i]}" 1>&2
+done
+
+read -k1 "REPLY?Select: "
+echo $types[$REPLY]

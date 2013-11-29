@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+# Usage: run
+
+mkdir -p out
+ext=`select_filetype`
+for file in in/*; do
+	eval "run_${ext} < $file > ${file:s/in/out}"
+done
