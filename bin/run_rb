@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+# Usage: run_rb
+ruby main.rb
