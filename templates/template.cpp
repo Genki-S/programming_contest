@@ -50,13 +50,14 @@ typedef pair<int, int> PII;
 
 #define OPOVER(_op, _type) inline bool operator _op (const _type &t) const
 
-#define arrsz(a) ( sizeof(a) / sizeof(a[0]) )
+#define ARRSIZE(a) ( sizeof(a) / sizeof(a[0]) )
+#define ZERO(a, v) ( assert(v == 0 || v == -1), memset(a, v, sizeof(a)) )
 
 #define F first
 #define S second
 #define MP(a, b) make_pair(a, b)
 
-#define SZ(a) ((LL)a.size())
+#define SIZE(a) ((LL)a.size())
 #define PB(e) push_back(e)
 #define SORT(v) sort((v).begin(), (v).end())
 #define RSORT(v) sort((v).rbegin(), (v).rend())
@@ -128,9 +129,9 @@ bool opt_debug = false;
 int main(int argc, char** argv) {
 	std::ios_base::sync_with_stdio(false);
 	// set options {{{
-	int c;
-	while ( (c = getopt(argc, argv, "d")) != -1 ) {
-		switch (c) {
+	int __c;
+	while ( (__c = getopt(argc, argv, "d")) != -1 ) {
+		switch (__c) {
 			case 'd':
 				opt_debug = true;
 				break;
