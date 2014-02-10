@@ -1,0 +1,3 @@
+[submodule "vendor/OnlineJudgeHelper"]
+	path = vendor/OnlineJudgeHelper
+	url = https://github.com/Genki-S/OnlineJudgeHelper
