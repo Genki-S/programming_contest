@@ -1,11 +1,10 @@
 #!/bin/zsh
 
-# Usage: use lang
-
 echo '
 Available commands:
 use     - select your language
 build   - build the source
 addcase - add sumple inputs and answers
 judge   - judge the result
+snap    - take snapshot of current source
 '

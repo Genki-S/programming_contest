@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+# Usage: snap
+
+for file in main.*; do
+	ext=${file:e}
+	n=$(( 0 + $(find . -maxdepth 1 -name 'snapshot*' | wc -l) ))
+	cp "main.${ext}" "snapshot.${n}.${ext}"
+done
