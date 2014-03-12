@@ -41,7 +41,7 @@ typedef vector<string> VS;
 typedef vector<VS> VVS;
 typedef pair<int, int> PII;
 
-#define FOR(i, b, e) for (typeof(e) i = (b); i != (e); i < (e)? ++i : --i)
+#define FOR(i, b, e) for (typeof(e) i = (b); i < (e); ++i)
 #define REP(i, n) FOR(i, 0, n)
 
 #define IFC(c) if(c) continue;
